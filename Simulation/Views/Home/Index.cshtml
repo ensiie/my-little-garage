@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("About", "Home", FormMethod.Post))  
+{  
+    <div>
+              <h2>Nombre des Garagistes</h2>
+              @Html.Label("Garage Citroën")  
+              @Html.TextBox("GCitroen", null, new { @style = "width: 30px;" })  
+              
+              @Html.Label("Garage Peugeot")  
+              @Html.TextBox("GPeugeot", null, new { @style = "width: 30px;" })  
+
+              @Html.Label("Garage BMW")  
+              @Html.TextBox("GBMW", null, new { @style = "width: 30px;" })  
+    </div>
+    
+    <div>
+              <h2>Nombre des Voitures</h2>
+              @Html.Label("Citroën")  
+              @Html.TextBox("Citroen", null, new { @style = "width: 30px;" }) 
+
+              @Html.Label("Peugeot")  
+              @Html.TextBox("Peugeot", null, new { @style = "width: 30px;" }) 
+        
+              @Html.Label("BMW")  
+              @Html.TextBox("BMW", null, new { @style = "width: 30px;" }) 
+    </div>
+     
+    <div>
+              <h2>Temps</h2>
+              @Html.Label("Jour de départ")  
+              @Html.DropDownList("List")  
+              @Html.Label("Durée de la simulation")  
+              @Html.TextBox("Duree")  
+    </div>
+              
+<input type="submit" value="Valider" />
+       
+} 
