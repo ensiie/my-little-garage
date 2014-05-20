@@ -51,7 +51,7 @@ namespace Simulation.Controllers
                 int nb = int.Parse(formCollection[item]);
                 while (nb > 0)
                 {
-                    _db.Voiture.Add(new Voiture { Marque = item});
+                    _db.Voiture.Add(new Car { Marque = item});
                     nb--;
                 }
             }
@@ -77,7 +77,7 @@ namespace Simulation.Controllers
                 int nb = int.Parse(formCollection[nomGarage]);
                 while (nb > 0)
                 {
-                    _db.Garagiste.Add(new Garagiste { Franchise = item });
+                    _db.Garagiste.Add(new Garagist { Franchise = item });
                     nb--;
                 }
             }

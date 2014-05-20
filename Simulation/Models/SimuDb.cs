@@ -8,8 +8,8 @@ namespace Simulation.Models
 {
     public class SimuDb:DbContext
     {
-        public DbSet<Voiture> Voiture { get; set; }
-        public DbSet<Garagiste> Garagiste { get; set; } 
-        public DbSet<CarnetEntretien> Carnet { get; set; }
+        public DbSet<Car> Voiture { get; set; }
+        public DbSet<Garagist> Garagiste { get; set; } 
+        public DbSet<Service> Carnet { get; set; }
     }
 }
