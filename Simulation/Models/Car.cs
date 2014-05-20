@@ -14,8 +14,8 @@ namespace Simulation.Models
         public string brand { get; set; }
         public string model { get; set; }
         public int kilometre { get; set; }
-        [ForeignKey ("service_id")]
-        public int service_id { get; set; }
+        //[ForeignKey ("service_id")]
+        //public int service_id { get; set; }
 
 
         public void CreerKilometrage()

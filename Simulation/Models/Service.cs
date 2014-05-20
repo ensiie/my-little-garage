@@ -14,8 +14,8 @@ namespace Simulation.Models
         public string label { get; set; }
         public int distance { get; set; }
         public int duration { get; set; }
-        [ForeignKey ("car_id")]
-        public int car_id { get; set; }
+        //[ForeignKey ("Car")]
+        //public int car_id { get; set; }
     }   
 }
     

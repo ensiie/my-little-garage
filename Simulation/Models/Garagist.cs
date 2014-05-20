@@ -8,7 +8,7 @@ using System.Web;
 namespace Simulation.Models
 {
     
-    public class Garagiste
+    public class Garagist
     {
         [Key]
         public int garagist_id { get; set; }
@@ -16,8 +16,8 @@ namespace Simulation.Models
         public int car_id { get; set; }
         //Comment gerer le planning ?
 
-        [ForeignKey ("service_id")]
-        public int service_id { get; set; }
+        //[ForeignKey ("Service")]
+        //public int service_id { get; set; }
 
     }
 

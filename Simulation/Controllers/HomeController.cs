@@ -35,14 +35,14 @@ namespace Simulation.Controllers
             //"Audi", "Renau", "Mercedez",, "Mini", "Toyota", "Honda", "Chevrolet"
 
             //Enlever les données anciennes dans la base de donnée
-            foreach (var entity in _db.Voiture)
+            foreach (var entity in _db.Car)
             {
-                _db.Voiture.Remove(entity);
+                _db.Car.Remove(entity);
             }
 
-            foreach (var entity in _db.Garagiste)
+            foreach (var entity in _db.Garagist)
             {
-                _db.Garagiste.Remove(entity);
+                _db.Garagist.Remove(entity);
             }
 
             //Création des voitures
@@ -51,7 +51,7 @@ namespace Simulation.Controllers
                 int nb = int.Parse(formCollection[item]);
                 while (nb > 0)
                 {
-                    _db.Voiture.Add(new Voiture { Marque = item});
+                    _db.Car.Add(new Car { brand = item});
                     nb--;
                 }
             }
@@ -59,14 +59,14 @@ namespace Simulation.Controllers
 
             //kilomètre entre 20000 et 200000 km
             int kilo = 0;
-            foreach (var entity in _db.Voiture)
+            foreach (var entity in _db.Car)
             {
                 entity.CreerKilometrage();
                 while (entity.kilometre == kilo)   //attention, Random() n'est pas vraiment aléatoire
                 {
                     entity.CreerKilometrage();
                 }
-                kilo = entity.Kilometrage;
+                kilo = entity.kilometre;
             }
             _db.SaveChanges();
 
@@ -77,7 +77,7 @@ namespace Simulation.Controllers
                 int nb = int.Parse(formCollection[nomGarage]);
                 while (nb > 0)
                 {
-                    _db.Garagiste.Add(new Garagiste { Franchise = item });
+                    _db.Garagist.Add(new Garagist { franchise = item });
                     nb--;
                 }
             }
@@ -87,28 +87,28 @@ namespace Simulation.Controllers
             jour = formCollection["List"];
 
 
-            var model = _db.Voiture.ToList();
+            var model = _db.Car.ToList();
             return View(model);
         }
 
         public ActionResult Rouler()
         {
             int kilo = 0;
-            foreach (var entity in _db.Voiture)
+            foreach (var entity in _db.Car)
             {
-                int kiloDebut = entity.Kilometrage;
+                int kiloDebut = entity.kilometre;
                 entity.rouler(jour);
 
-                while (entity.Kilometrage - kiloDebut == kilo)   //attention, Random n'est pas vraiment aléatoire
+                while (entity.kilometre - kiloDebut == kilo)   //attention, Random n'est pas vraiment aléatoire
                 {
-                    entity.Kilometrage = kiloDebut;
+                    entity.kilometre = kiloDebut;
                     entity.rouler(jour);
                 }
-                kilo = entity.Kilometrage - kiloDebut;
+                kilo = entity.kilometre - kiloDebut;
             }
             _db.SaveChanges();
 
-            var model = _db.Voiture.ToList();
+            var model = _db.Car.ToList();
             return View(model);
         }
     }
